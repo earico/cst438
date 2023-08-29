@@ -6,3 +6,4 @@ Cereal
 Bread
 Eggs
 Milk
+Coffee & Tea
