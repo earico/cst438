@@ -24,10 +24,23 @@ public class UnitTest {
 	public void setup() {
 		ip = new InsulinPump(devReader, devOutput);
 	}
-	
+	/*
 	@Test
 	public void test1() {
 		//TO DO 
 	}
-
+	*/	
+	@Test
+	public void testHiReading() {
+		long time = 1689881075174L; // 12:24 July 20, 2023
+		
+		given(devReader.getGlucoseLevel()).willReturn(140);
+		ip.check(time);
+		
+		verify(devOutput, times(1)).pumpOneUnit();
+		String[] log = ip.getLog(0,  1);
+		assertThat(log.length).isEqualTo(1);
+		assertThat(log[0]).contains("12:24");
+		assertThat(log[0]).contains("140");
+	}
 }

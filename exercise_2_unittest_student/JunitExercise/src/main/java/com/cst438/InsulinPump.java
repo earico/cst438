@@ -46,7 +46,12 @@ public class InsulinPump {
         //  CRITICAL_HI <= reading,  raise alarm1, deliver 1 unit
         else if (CRITICAL_HI <= gluLevel) {
         	this.out.alarm1();
-        	this.out.pumpOneUnit();
+        \
+        
+        
+        
+        
+        this.out.pumpOneUnit();
         	alarm = "ALARM_1";
         }
 	    // create log record as a string value
