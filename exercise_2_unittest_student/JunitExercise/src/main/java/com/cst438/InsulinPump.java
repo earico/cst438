@@ -74,7 +74,7 @@ public class InsulinPump {
 			for (int i = 0; i < limit; i++) {
 				
 			}
-			return log;
+			return null;
 		}
 		
 		else {
