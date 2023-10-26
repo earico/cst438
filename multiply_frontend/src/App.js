@@ -2,8 +2,7 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import History from './components/History';
 import Problem from './components/Problem';
-
-
+import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -87,14 +86,23 @@ function App() {
 
   return (
     <div className="App">
-      <Problem 
-              factors={factors}
-              message={message} 
-              postAttempt={postAttempt} 
-              fetchProblem={fetchProblem} />
-      {(history.length > 0)?  (<History data={history}/>) : ''}
+      <BrowserRouter>
+      <Link to='/'>Play Game</Link>{' | '}<Link to='/history'>History</Link>
+      <Switch>
+        <Route exact path='/'>
+          <Problem factors={factors} 
+                   message={message}
+                   postAttempt={postAttempt} 
+                   fetchProblem={fetchProblem} />
+        </Route>
+        <Route path='/history'>
+          <History data={history}/>
+        </Route>
+      </Switch>
+      </BrowserRouter>
     </div>
   )
+
 }
 
 export default App;

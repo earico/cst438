@@ -38,7 +38,7 @@ const {a, b} = props.factors;
 return (
   <div className="App">
    <h3>The problem is </h3>
-   <h1>{a} x {b}</h1>
+   <h1><span id="factora">{a}</span> x <span id="factorb">{b}</span></h1>
 
 
   <table>
@@ -58,11 +58,11 @@ return (
    </table>
    
    <br/>
-   <button onClick={handleSubmit}>Submit</button>
+   <button id="submit" onClick={handleSubmit}>Submit</button>
    <br/>
    <button onClick={handleNext}>Next Problem</button>
    
-   <h3>{msg}</h3>
+   <h3 id="message">{msg}</h3>
   </div>
 )
 }
